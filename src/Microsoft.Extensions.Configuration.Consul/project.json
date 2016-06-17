@@ -1,0 +1,31 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "warningsAsErrors": true,
+    "xmlDoc": false
+  },
+  "description": "Consul configuration provider implementation for Microsoft.Extensions.Configuration.",
+  "packOptions": {
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/harry-wangx/Microsoft.Extensions.Configuration.Consul"
+    },
+    "tags": [
+      "configuration",
+      "consul"
+    ]
+  },
+  "dependencies": {
+    "NETStandard.Library": "1.5.0-rc2-24027",
+    "Microsoft.Extensions.Configuration": "1.0.0-*",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-*"
+  },
+
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "Consul": "0.6.4.7"
+      }
+    }
+  }
+}
