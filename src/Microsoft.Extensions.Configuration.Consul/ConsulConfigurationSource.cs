@@ -14,7 +14,7 @@ namespace Microsoft.Extensions.Configuration.Consul
 
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
-            return new ConsulConfigurationProvider(Address);
+            return new ConsulConfigurationProvider(Address,Prefix);
         }
     }
 }
