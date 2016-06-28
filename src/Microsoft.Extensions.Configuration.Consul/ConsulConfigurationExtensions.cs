@@ -21,6 +21,10 @@ namespace Microsoft.Extensions.Configuration
             {
                 address =new Uri("http://127.0.0.1:8500");
             }
+            if (prefix != null)
+            {
+                prefix = prefix.Trim().Replace(':', '/');
+            }
             builder.Add(new ConsulConfigurationSource { Address = address,Prefix=prefix });
             return builder;
         }
