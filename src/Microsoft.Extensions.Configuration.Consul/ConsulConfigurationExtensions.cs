@@ -9,24 +9,36 @@ namespace Microsoft.Extensions.Configuration
 {
     public static class ConsulConfigurationExtensions
     {
-        //public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder)
-        //{
-        //    return AddConsul(builder, new Uri("http://127.0.0.1:8500"),null);
-        //}
-
-
-        public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder, Uri address=null,string prefix=null)
+        public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder)
         {
-            if (address == null)
+            return AddConsul(builder,null);
+        }
+
+        public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder, Action<ConsulConfigurationOptions> optionsAction)
+        {
+            ConsulConfigurationOptions options = new Consul.ConsulConfigurationOptions();
+            optionsAction?.Invoke(options);
+
+
+            if (options.Address == null)
             {
-                address =new Uri("http://127.0.0.1:8500");
+                options.Address = new Uri("http://127.0.0.1:8500");
             }
-            if (prefix != null)
+            if (options.Prefix != null)
             {
-                prefix = prefix.Trim().Replace(':', '/');
+                options.Prefix = options.Prefix.Trim().Replace(':', '/');
             }
-            builder.Add(new ConsulConfigurationSource { Address = address,Prefix=prefix });
+            builder.Add(new ConsulConfigurationSource { Options = options });
             return builder;
+        }
+
+        [Obsolete]
+        public static IConfigurationBuilder AddConsul(this IConfigurationBuilder builder, Uri address = null, string prefix = null)
+        {
+            return AddConsul(builder, options => {
+                options.Address = address;
+                options.Prefix = prefix;
+            });
         }
     }
 }

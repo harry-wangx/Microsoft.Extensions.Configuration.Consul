@@ -18,9 +18,14 @@ namespace Microsoft.Extensions.Configuration.Consul
 
         private string _prefix = null;
 
-        public ConsulConfigurationProvider(Uri address, string prefix)
+        public ConsulConfigurationProvider(ConsulConfigurationOptions options)
         {
-            _prefix = prefix;
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            _prefix = options.Prefix;
             if (!string.IsNullOrEmpty(_prefix))
             {
                 _prefix = _prefix.Trim();
@@ -30,7 +35,12 @@ namespace Microsoft.Extensions.Configuration.Consul
                 new ConsulClient(
                     new ConsulClientConfiguration
                     {
-                        Address = address
+                        Address = options.Address,
+                        ClientCertificate=options.ClientCertificate,
+                        Datacenter = options.Datacenter,
+                        HttpAuth=options.HttpAuth,
+                        Token=options.Token,
+                        WaitTime=options.WaitTime,
                     }
                 );
         }
@@ -43,7 +53,7 @@ namespace Microsoft.Extensions.Configuration.Consul
             //IDictionary<string, string> _data = new SortedDictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
             var result = _consulClient.KV.List(_prefix).Result;
-            if (result != null && result.StatusCode== HttpStatusCode.OK && result.Response != null)
+            if (result != null && result.StatusCode == HttpStatusCode.OK && result.Response != null)
             {
                 foreach (var item in result.Response)
                 {
@@ -55,9 +65,9 @@ namespace Microsoft.Extensions.Configuration.Consul
                         }
                         else
                         {
-                            Set(item.Key.Substring(_prefix.Length+1).Replace('/', ':'), System.Text.Encoding.UTF8.GetString(item.Value));
+                            Set(item.Key.Substring(_prefix.Length + 1).Replace('/', ':'), System.Text.Encoding.UTF8.GetString(item.Value));
                         }
-                        
+
                     }
                 }
             }

@@ -8,13 +8,11 @@ namespace Microsoft.Extensions.Configuration.Consul
     public class ConsulConfigurationSource : IConfigurationSource
     {
 
-        public Uri  Address { get; set; }
-
-        public string Prefix { get; set; }
+        public ConsulConfigurationOptions Options { get; set; }
 
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
-            return new ConsulConfigurationProvider(Address,Prefix);
+            return new ConsulConfigurationProvider(Options);
         }
     }
 }

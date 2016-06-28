@@ -17,23 +17,25 @@ namespace Example.Web
 
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app)
         {
             app.Run(async (context) =>
             {
-                //consul中的key是区分大小写的,所以这里的prefix要注意大小写
                 var builder = new ConfigurationBuilder()
-                    .AddConsul(prefix:"Config");
+                    .AddConsul(options=> {
+                        options.Address = new Uri("https://demo.consul.io");
+                        options.Datacenter = "nyc3";
+                        //consul中的key是区分大小写的,所以这里的prefix要注意大小写
+                        options.Prefix = null;
+                    });
                 IConfigurationRoot configuration = builder.Build();
 
-                await context.Response.WriteAsync(configuration["aa"]+Environment.NewLine+ configuration["order:server1"]);
+                await context.Response.WriteAsync(configuration["global:time"]);
             });
         }
     }
