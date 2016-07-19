@@ -1,6 +1,6 @@
-# Microsoft.Extensions.Configuration.Consul
+﻿# Microsoft.Extensions.Configuration.Consul
 Consul provider
 
 ---
 
-:star: QQȺ:7957181
+:star: QQ 群:7957181
