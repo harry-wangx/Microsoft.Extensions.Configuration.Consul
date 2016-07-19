@@ -32,6 +32,17 @@ namespace Microsoft.Extensions.Configuration.Consul
             }
 
             _consulClient =
+#if COREFX
+                new ConsulClient(cfg => {
+                    cfg.Address = options.Address;
+                    //cfg.ClientCertificate = options.ClientCertificate;
+                    cfg.Datacenter = options.Datacenter;
+                    cfg.HttpAuth = options.HttpAuth;
+                    cfg.Token = options.Token;
+                    cfg.WaitTime = options.WaitTime;
+                }
+                );
+#else
                 new ConsulClient(
                     new ConsulClientConfiguration
                     {
@@ -43,6 +54,8 @@ namespace Microsoft.Extensions.Configuration.Consul
                         WaitTime=options.WaitTime,
                     }
                 );
+#endif
+
         }
 
         /// <summary>
