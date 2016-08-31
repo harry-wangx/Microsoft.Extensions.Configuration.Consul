@@ -32,7 +32,7 @@ namespace Microsoft.Extensions.Configuration.Consul
             }
 
             _consulClient =
-#if COREFX
+#if COREFX || NET451
                 new ConsulClient(cfg => {
                     cfg.Address = options.Address;
                     //cfg.ClientCertificate = options.ClientCertificate;

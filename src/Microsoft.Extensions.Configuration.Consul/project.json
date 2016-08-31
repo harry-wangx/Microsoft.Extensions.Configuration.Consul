@@ -15,16 +15,16 @@
   },
   "authors": [ "Harry" ],
   "description": "Consul configuration provider implementation for Microsoft.Extensions.Configuration",
-  "version": "0.1.2-*",
+  "version": "0.1.4",
   "title": "Microsoft.Extensions.Configuration.Consul",
-  "copyright": "2016 Harry",
+
   "buildOptions": {
     "warningsAsErrors": true,
     "xmlDoc": false
   },
 
   "dependencies": {
-    "Microsoft.Extensions.Configuration": "1.0.0-*"
+    "Microsoft.Extensions.Configuration":"1.0.0"
   },
 
   "frameworks": {
@@ -33,13 +33,17 @@
         "Consul": "0.6.4.7"
       }
     },
+    "net451": {
+      "dependencies": {
+        "Consul":"0.7.0-rc1"
+      }
+    },
     "netstandard1.3": {
       "buildOptions": {
-        "define": [ "ASYNC", "COREFX" ]
+        "define": [ "COREFX" ]
       },
       "dependencies": {
-        "Microsoft.CSharp": "4.0.1",
-        "Consul": "0.6.4.8-alpha2"
+        "Consul": "0.7.0-rc1"
       }
     }
   }
