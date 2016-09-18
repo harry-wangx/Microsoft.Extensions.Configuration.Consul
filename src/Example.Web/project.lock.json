@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Consul/0.7.0-rc1": {
+      "Consul/0.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Net.Http",
@@ -744,7 +744,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Consul": "0.7.0-rc1",
+          "Consul": "0.7.0",
           "Microsoft.Extensions.Configuration": "1.0.0"
         },
         "compile": {
@@ -757,12 +757,12 @@
     }
   },
   "libraries": {
-    "Consul/0.7.0-rc1": {
-      "sha512": "NpSr+LllCl8Ja0y0y9zHzNyiO4hMwmSxwvo/HhMVK8Nd2pOBmuMsKmH64ofngeD9MbFOo9oMXW/M9EHGy4aAjQ==",
+    "Consul/0.7.0": {
+      "sha512": "DQ6evGbi3ci9mi0qhtG5QArUKP8OAVBL7QqRmHD+25rUafSAFxLY+0m9mwKQgo8QRV81c9TkSBfrfD086cnvAg==",
       "type": "package",
-      "path": "Consul/0.7.0-rc1",
+      "path": "Consul/0.7.0",
       "files": [
-        "Consul.0.7.0-rc1.nupkg.sha512",
+        "Consul.0.7.0.nupkg.sha512",
         "Consul.nuspec",
         "lib/net451/Consul.dll",
         "lib/netstandard1.3/Consul.dll"
