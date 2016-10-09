@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Consul/0.7.0": {
+      "Consul/0.7.0.1": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Net.Http",
@@ -740,11 +740,11 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Consul/0.1.4": {
+      "Microsoft.Extensions.Configuration.Consul/0.1.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "Consul": "0.7.0",
+          "Consul": "0.7.0.1",
           "Microsoft.Extensions.Configuration": "1.0.0"
         },
         "compile": {
@@ -757,12 +757,12 @@
     }
   },
   "libraries": {
-    "Consul/0.7.0": {
-      "sha512": "DQ6evGbi3ci9mi0qhtG5QArUKP8OAVBL7QqRmHD+25rUafSAFxLY+0m9mwKQgo8QRV81c9TkSBfrfD086cnvAg==",
+    "Consul/0.7.0.1": {
+      "sha512": "5UxlcsQpgiDpShKW8mJc4+TDwJThvOPda4lJVaOHHs2zbLLm4DuYIyTwCuhKTq5YUiPxDZchZKu0SZoZFcEvFw==",
       "type": "package",
-      "path": "Consul/0.7.0",
+      "path": "Consul/0.7.0.1",
       "files": [
-        "Consul.0.7.0.nupkg.sha512",
+        "Consul.0.7.0.1.nupkg.sha512",
         "Consul.nuspec",
         "lib/net451/Consul.dll",
         "lib/netstandard1.3/Consul.dll"
@@ -2474,7 +2474,7 @@
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml"
       ]
     },
-    "Microsoft.Extensions.Configuration.Consul/0.1.4": {
+    "Microsoft.Extensions.Configuration.Consul/0.1.5": {
       "type": "project",
       "path": "../Microsoft.Extensions.Configuration.Consul/project.json",
       "msbuildProject": "../Microsoft.Extensions.Configuration.Consul/Microsoft.Extensions.Configuration.Consul.xproj"

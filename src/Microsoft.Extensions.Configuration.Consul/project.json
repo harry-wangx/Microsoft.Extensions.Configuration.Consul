@@ -15,7 +15,7 @@
   },
   "authors": [ "Harry" ],
   "description": "Consul configuration provider implementation for Microsoft.Extensions.Configuration",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "title": "Microsoft.Extensions.Configuration.Consul",
 
   "buildOptions": {
@@ -35,7 +35,7 @@
     },
     "net451": {
       "dependencies": {
-        "Consul":"0.7.0"
+        "Consul":"0.7.0.1"
       }
     },
     "netstandard1.3": {
@@ -43,7 +43,7 @@
         "define": [ "COREFX" ]
       },
       "dependencies": {
-        "Consul": "0.7.0"
+        "Consul": "0.7.0.1"
       }
     }
   }
